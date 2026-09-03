@@ -12,6 +12,7 @@ langchain
 langchain-community
 langchain-openai
 langchain-google-genai
+langchain-huggingface
 openai
 chromadb
 pypdf
