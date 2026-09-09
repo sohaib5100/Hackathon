@@ -8,5 +8,6 @@ python-multipart
 google-generativeai
 langchain
 langchain-google-genai
+langchain-community
 pypdf
 twilio
