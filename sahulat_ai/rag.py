@@ -34,7 +34,7 @@ def initialize_rag():
     docs = text_splitter.split_documents(all_docs)
 
     # embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+    embeddings = GoogleGenerativeAIEmbeddings(model="models/text-embedding-004")
     vectorstore = FAISS.from_documents(docs, embeddings)
     
     return vectorstore.as_retriever(search_kwargs={"k": 3})
