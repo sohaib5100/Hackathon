@@ -2,7 +2,8 @@ import os
 from langchain_community.document_loaders import PyPDFDirectoryLoader, TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
-from langchain_huggingface import HuggingFaceEmbeddings
+# from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 
 DATA_DIR = "data/saylani_docs"
 TXT_FILE = "data/knowledge_base.txt"
@@ -32,7 +33,8 @@ def initialize_rag():
     )
     docs = text_splitter.split_documents(all_docs)
 
-    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+    # embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
     vectorstore = FAISS.from_documents(docs, embeddings)
     
     return vectorstore.as_retriever(search_kwargs={"k": 3})
