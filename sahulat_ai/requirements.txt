@@ -11,3 +11,4 @@ langchain-google-genai
 langchain-community
 pypdf
 twilio
+faiss-cpu
